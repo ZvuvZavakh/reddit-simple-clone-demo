@@ -1,0 +1,1 @@
+ALTER TABLE posts RENAME COLUMN voice_count TO vote_count;

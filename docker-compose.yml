@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  reddit-mysql:
+    image: mysql:latest
+    container_name: reddit-mysql
+    command: --innodb_use_native_aio=0
+    restart: unless-stopped
+    networks:
+      - reddit-network
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: reddit-demo-db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+
+  reddit-phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: reddit-phpmyadmin
+    ports:
+      - '2019:80'
+    environment:
+      PMA_HOST: reddit-mysql
+      PMA_USER: user
+      PMA_PASSWORD: password
+    networks:
+      - reddit-network
+    depends_on:
+      - reddit-mysql
+
+networks:
+  reddit-network:
+    driver: bridge
