@@ -6,17 +6,17 @@
 
 ### `docker-compose up -d`
 
-3. Download maven dependencies
-4. Set environment variables defined in src/main/resources/application.yml
-5. Start Springboot application
-6. Navigate to frontend app
+2. Download maven dependencies
+3. Set environment variables defined in src/main/resources/application.yml
+4. Start Springboot application
+5. Navigate to frontend app
 
 ### `cd frontend`
 
-7. Install dependencies
+6. Install dependencies
 
 ### `npm i`
 
-8. Start the frontend application
+7. Start the frontend application
 
 ### `npm start`
